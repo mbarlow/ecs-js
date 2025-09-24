@@ -28,6 +28,7 @@ export class RenderSystem {
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.setClearColor(0x0a0a0a);
+    this.renderer.physicallyCorrectLights = true;
 
     // Handle window resize
     window.addEventListener("resize", () => {
@@ -55,7 +56,7 @@ export class RenderSystem {
 
   setupLights() {
     // Ambient light
-    const ambientLight = new THREE.AmbientLight(0x404040, 0.3);
+    const ambientLight = new THREE.AmbientLight(0x202020, 0.3);
     this.scene.add(ambientLight);
 
     // Main directional light (sun)
@@ -92,7 +93,11 @@ export class RenderSystem {
     // Emissive cubes for ambient lighting
     const emissiveGeometry = new THREE.BoxGeometry(2, 8, 2);
     const emissiveMaterial = new THREE.MeshBasicMaterial({
-      color: 0x666666,
+      color: 0x00cccc,
+      emissive: 0x00ffff,
+      emissiveIntensity: 2.0,
+      metalness: 0.1,
+      roughness: 0.4,
       transparent: true,
       opacity: 0.8,
     });
@@ -109,6 +114,9 @@ export class RenderSystem {
       const pillar = new THREE.Mesh(emissiveGeometry, emissiveMaterial);
       pillar.position.set(pos.x, 4, pos.z);
       this.scene.add(pillar);
+      const glowLight = new THREE.PointLight(0x00ffff, 3.0, 8.0);
+      glowLight.position.copy(pillar.position);
+      this.scene.add(glowLight);
     });
   }
 
