@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1a1a1a;
+    font-family: "Courier New", monospace;
+    color: #e0e0e0;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#game-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+}
+
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+#debug-info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 15px;
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid #333;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        inset 2px 2px 5px rgba(255, 255, 255, 0.1),
+        inset -2px -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#debug-info span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+#debug-info span:last-child {
+    margin-bottom: 0;
+}
+
+/* Neumorphic button style for future UI elements */
+.neuro-button {
+    background: #2a2a2a;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    color: #e0e0e0;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow:
+        6px 6px 12px rgba(0, 0, 0, 0.8),
+        -6px -6px 12px rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.neuro-button:hover {
+    box-shadow:
+        3px 3px 6px rgba(0, 0, 0, 0.8),
+        -3px -3px 6px rgba(255, 255, 255, 0.1);
+}
+
+.neuro-button:active {
+    box-shadow:
+        inset 3px 3px 6px rgba(0, 0, 0, 0.8),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.1);
+}

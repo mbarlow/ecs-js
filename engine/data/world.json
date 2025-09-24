@@ -1,0 +1,26 @@
+{
+  "name": "Test World",
+  "description": "A basic test world with wandering mobs",
+  "config": {
+    "ambient": {
+      "fogColor": 657930,
+      "fogNear": 50,
+      "fogFar": 200
+    },
+    "lighting": {
+      "ambientIntensity": 0.3,
+      "sunIntensity": 0.8
+    }
+  },
+  "entities": [
+    {
+      "definition": "data/entities/mob.json",
+      "count": 6,
+      "spawnArea": {
+        "x": 0,
+        "z": 0,
+        "radius": 15
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ecs-game-engine",
+  "version": "1.0.0",
+  "description": "Minimal ECS game engine with Three.js",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/main.js",
+    "serve": "bun --hot src/server.js"
+  },
+  "devDependencies": {
+    "bun": "latest"
+  },
+  "dependencies": {
+    "three": "^0.159.0"
+  }
+}
